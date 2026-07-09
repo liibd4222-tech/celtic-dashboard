@@ -354,7 +354,7 @@
   <div class="kpi-grid">
     <div class="kpi-card blue"><div class="kpi-label">총 참석 인원</div><div class="kpi-value">337</div><div class="kpi-sub">계획 363명 중 / 전 17차수</div></div>
     <div class="kpi-card green"><div class="kpi-label">누적 참석률</div><div class="kpi-value">92.8%</div><div class="kpi-sub">일반 15차 + VOC 2차 완료</div></div>
-    <div class="kpi-card amber"><div class="kpi-label">평균 평가 점수</div><div class="kpi-value">69.8</div><div class="kpi-sub">100점 만점 / 전 17차수</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">평균 평가 점수</div><div class="kpi-value">68.6</div><div class="kpi-sub">100점 만점 / 전 17차수</div></div>
     <div class="kpi-card purple"><div class="kpi-label">설문 평균 (Q1-7)</div><div class="kpi-value">4.65</div><div class="kpi-sub">5점 만점 / 전체 응답자</div></div>
     <div class="kpi-card red"><div class="kpi-label">설문 응답자 수</div><div class="kpi-value">328</div><div class="kpi-sub">전 17차수 설문 참여자</div></div>
   </div>
@@ -389,11 +389,11 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
     <div class="card">
       <div class="card-title"><span>차수별 평균 평가 점수</span></div>
-      <canvas id="scoreLineChart" height="150"></canvas>
+      <div style="height:220px;position:relative;"><canvas id="scoreLineChart"></canvas></div>
     </div>
     <div class="card">
       <div class="card-title"><span>설문 항목별 누적 평균 (Q1~Q7)</span></div>
-      <canvas id="surveyRadar" height="150"></canvas>
+      <div style="height:220px;position:relative;"><canvas id="surveyRadar"></canvas></div>
     </div>
   </div>
   <div class="three-col">
@@ -478,7 +478,7 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
     <div class="card" style="border:2px solid #BFDBFE;background:#EFF6FF;">
       <div style="font-size:11px;color:#1D4ED8;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">📊 전체 누적 평균 점수</div>
-      <div style="font-size:42px;font-family:'DM Mono';font-weight:700;color:#2563EB;line-height:1.1;">69.8</div>
+      <div style="font-size:42px;font-family:'DM Mono';font-weight:700;color:#2563EB;line-height:1.1;">68.6</div>
       <div style="font-size:12px;color:#1D4ED8;margin-top:6px;">전 17차수 최종 평균</div>
     </div>
     <div class="card" style="border:2px solid #A7F3D0;background:#ECFDF5;">
@@ -502,8 +502,8 @@
     <div class="kpi-card red"><div class="kpi-label">11차 (영남)</div><div class="kpi-value">56.1</div><div class="kpi-sub">18명 응시</div></div>
     <div class="kpi-card amber"><div class="kpi-label">12차 (호남)</div><div class="kpi-value">68.3</div><div class="kpi-sub">23명 응시</div></div>
     <div class="kpi-card blue"><div class="kpi-label">15차 (수도권)</div><div class="kpi-value">70.7</div><div class="kpi-sub">21명 응시</div></div>
-    <div class="kpi-card blue"><div class="kpi-label">16차 (영남)</div><div class="kpi-value">72.0</div><div class="kpi-sub">20명 응시</div></div>
-    <div class="kpi-card green"><div class="kpi-label">17차 (중부)</div><div class="kpi-value">74.6</div><div class="kpi-sub">27명 응시</div></div>
+    <div class="kpi-card red"><div class="kpi-label">16차 (영남)</div><div class="kpi-value">61.5</div><div class="kpi-sub">20명 응시</div></div>
+    <div class="kpi-card amber"><div class="kpi-label">17차 (중부)</div><div class="kpi-value">67.1</div><div class="kpi-sub">26명 응시</div></div>
   </div>
 
   <div class="two-col">
@@ -778,8 +778,8 @@ const scoreData = {
   11:[{store:'달서남부',name:'전찬호',score:80},{store:'영주',name:'이태선',score:70},{store:'부산사하',name:'유종길',score:70},{store:'부산연제',name:'이동경',score:70},{store:'경산동부',name:'김동영',score:65},{store:'서구미',name:'이유진',score:65},{store:'포항영덕',name:'임찬섭',score:65},{store:'안동',name:'서현종',score:65},{store:'안동',name:'서태교',score:65},{store:'북대구',name:'김동민',score:65},{store:'포항북구',name:'신현필',score:60},{store:'달서서부',name:'배종율',score:60},{store:'경산동부',name:'김기훈',score:50},{store:'안동중앙',name:'권우진',score:45},{store:'달서남부',name:'류종운',score:40},{store:'김해중앙',name:'정영민',score:30},{store:'경주',name:'정희두',score:30},{store:'성주',name:'이현석',score:15}],
   12:[{store:'광양',name:'박중광',score:85},{store:'광주동구',name:'박경민',score:85},{store:'전주동부',name:'소재운',score:85},{store:'광주북구제일',name:'박종천',score:80},{store:'남악',name:'이현훈',score:80},{store:'목포하당',name:'남정표',score:80},{store:'서전주',name:'장호범',score:80},{store:'군산제일',name:'정세명',score:80},{store:'서군산',name:'김형곤',score:80},{store:'광주하남',name:'장민석',score:75},{store:'포항남부',name:'이상호',score:70},{store:'대구남부',name:'유정우',score:70},{store:'서익산',name:'이승철',score:70},{store:'전주동부',name:'최윤호',score:70},{store:'금일에너지',name:'오호동',score:65},{store:'달서북부',name:'한만석',score:60},{store:'북광주',name:'김병수',score:60},{store:'여수중앙',name:'정형석',score:60},{store:'전주혁신',name:'장용운',score:55},{store:'여수남부',name:'정규빈',score:55},{store:'동대구',name:'이재현',score:50},{store:'북익산',name:'정태영',score:45},{store:'동구미',name:'변성민',score:30}],
   15:[{store:'인천계양',name:'윤준호',score:90},{store:'포천',name:'이준민',score:85},{store:'동대문',name:'안재형',score:80},{store:'가평',name:'김명조',score:80},{store:'양천',name:'홍진혁',score:80},{store:'인천계양',name:'김동진',score:80},{store:'양천',name:'이진세',score:75},{store:'이천',name:'김민영',score:75},{store:'구로',name:'신윤철',score:75},{store:'강남',name:'최청록',score:75},{store:'양평',name:'곽경원',score:75},{store:'용인중앙',name:'신현일',score:70},{store:'금천',name:'김규영',score:70},{store:'의정부서부',name:'최우식',score:70},{store:'동대문',name:'임남철',score:65},{store:'영등포',name:'신도형',score:65},{store:'구리제일',name:'유상일',score:65},{store:'영등포',name:'김기현',score:60},{store:'강서',name:'강태호',score:60},{store:'강서',name:'우주연',score:45},{store:'이천',name:'김창호',score:45}],
-  16:[{store:'대구달서',name:'김강현',score:90},{store:'구미중앙',name:'김태욱',score:85},{store:'창원상남',name:'김상우',score:85},{store:'경산중앙',name:'이민규',score:80},{store:'경산중앙',name:'신진원',score:80},{store:'포항남구',name:'정현일',score:80},{store:'안동',name:'박정구',score:75},{store:'창원상남',name:'정민규',score:75},{store:'창원중앙',name:'이승현',score:75},{store:'경산동부',name:'정선우',score:75},{store:'부산사상',name:'장영재',score:70},{store:'경주',name:'장재훈',score:70},{store:'달서서부',name:'김영철',score:70},{store:'부산남구',name:'이상민',score:70},{store:'대구달서남부',name:'이정규',score:65},{store:'안동중앙',name:'권태원',score:65},{store:'부산북구',name:'유재광',score:65},{store:'영천',name:'최경민',score:60},{store:'창원성산',name:'이진규',score:55},{store:'김해장유',name:'윤병준',score:50}],
-  17:[{store:'청주흥덕',name:'정진희',score:95},{store:'청주흥덕',name:'이창섭',score:90},{store:'천안동부',name:'이동기',score:85},{store:'대전동구',name:'최지훈',score:85},{store:'청주중앙',name:'박남운',score:85},{store:'충주',name:'이정화',score:85},{store:'천안중앙',name:'손승표',score:80},{store:'대전유성',name:'김진수',score:80},{store:'아산',name:'최대혁',score:80},{store:'천안서북',name:'이강섭',score:80},{store:'원주중앙',name:'김동완',score:80},{store:'세종',name:'김광연',score:75},{store:'제천',name:'강영국',score:75},{store:'충주남부',name:'이창민',score:75},{store:'천안동부',name:'이동훈',score:75},{store:'청주동부',name:'김우현',score:75},{store:'홍성',name:'김진수',score:75},{store:'당진',name:'이세민',score:70},{store:'대전중구',name:'김진호',score:70},{store:'서산',name:'정희진',score:70},{store:'보령',name:'박혁준',score:70},{store:'원주',name:'박호재',score:65},{store:'충주남부',name:'조현준',score:65},{store:'충주중앙',name:'김상진',score:65},{store:'진천',name:'박상협',score:60},{store:'청주서부',name:'노재성',score:55},{store:'홍성',name:'김기홍',score:50}]
+  16:[{store:'인천부평남부',name:'김한섭',score:80},{store:'북대구',name:'장호건',score:75},{store:'부산사하남부',name:'강호성',score:75},{store:'울산중부',name:'박거렬',score:70},{store:'달서북부',name:'김희섭',score:70},{store:'동대구',name:'최윤대',score:70},{store:'예천',name:'황도웅',score:70},{store:'부산금정중앙',name:'권일',score:70},{store:'부산진',name:'김영진',score:70},{store:'마산',name:'정진명',score:65},{store:'영주',name:'이은형',score:65},{store:'부산진',name:'김태현',score:65},{store:'울산중부',name:'박동휘',score:60},{store:'대구중구',name:'마승현',score:55},{store:'구미김천',name:'이지원',score:50},{store:'울산중부',name:'김기현',score:45},{store:'대구남부',name:'이현탁',score:45},{store:'대구중구',name:'김정훈',score:45},{store:'북구중앙',name:'곽병주',score:45},{store:'경주',name:'정호',score:40}],
+  17:[{store:'대전서구',name:'박진원',score:100},{store:'광주서강',name:'조영우',score:90},{store:'인천남동',name:'박진',score:80},{store:'계룡',name:'김윤섭',score:80},{store:'당진',name:'이준호',score:80},{store:'대덕충앙',name:'김태화',score:80},{store:'청주중앙',name:'정하군',score:80},{store:'대전중구남부',name:'최수민',score:75},{store:'서산',name:'김선',score:75},{store:'천안동부',name:'손성일',score:75},{store:'천안동부',name:'이건우',score:70},{store:'대전동구북부',name:'엄용구',score:70},{store:'원주서부',name:'윤용구',score:70},{store:'원주중부',name:'추정식',score:70},{store:'춘천서부',name:'한병현',score:70},{store:'인천남동',name:'박상민',score:60},{store:'천안동부',name:'현지건',score:60},{store:'아산',name:'엄충민',score:55},{store:'청주오창',name:'우윤섭',score:55},{store:'속초',name:'황동구',score:55},{store:'동구미',name:'장영수',score:55},{store:'대전유성남부',name:'박근호',score:50},{store:'대전유성북부',name:'권형석',score:50},{store:'원주중부',name:'류동열',score:50},{store:'동울산',name:'백상현',score:45},{store:'순창',name:'조은성',score:45}]
 };
 
 const surveyLikert = {
@@ -1282,13 +1282,12 @@ function initCharts(){
     data:{
       labels:['1차','2차','3차','4차','5차','6차','7차','8차','9차','10차','11차','12차','15차','16차','17차'],
       datasets:[
-        {label:'평균 점수',data:[72.4,64.4,63.2,73.7,67.3,73.8,71.8,74.7,75.0,69.1,56.1,68.3,70.7,72.0,74.6],borderColor:'#D97706',backgroundColor:'rgba(217,119,6,0.08)',tension:0.4,pointRadius:5,pointBackgroundColor:'#D97706',fill:true,showLabels:true,labelColor:'#92400E'},
-        {label:'전체 평균',data:[69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8],borderColor:'#94A3B8',borderDash:[5,4],pointRadius:0,fill:false}
+        {label:'평균 점수',data:[72.4,64.4,63.2,73.7,67.3,73.8,71.8,74.7,75.0,69.1,56.1,68.3,70.7,61.5,67.1],borderColor:'#D97706',backgroundColor:'rgba(217,119,6,0.08)',tension:0.4,pointRadius:5,pointBackgroundColor:'#D97706',fill:true,showLabels:true,labelColor:'#92400E'},
+        {label:'전체 평균',data:[68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6],borderColor:'#94A3B8',borderDash:[5,4],pointRadius:0,fill:false}
       ]
     },
-    options:{...CD,scales:{...CD.scales,y:{...CD.scales.y,min:50,max:80}}}
+    options:{...CD, maintainAspectRatio:false, scales:{...CD.scales,y:{...CD.scales.y,min:50,max:80}}}
   });
-
   const qKeys=['q1','q2','q3','q4','q5','q6','q7'];
   const avgPerQ=qKeys.map(k=>parseFloat(avg(Object.values(surveyLikert).map(s=>s[k])).toFixed(2)));
   new Chart(document.getElementById('surveyRadar'),{
@@ -1298,6 +1297,7 @@ function initCharts(){
       datasets:[{label:'전체 평균',data:avgPerQ,backgroundColor:'rgba(37,99,235,0.12)',borderColor:'#2563EB',pointBackgroundColor:'#2563EB',pointRadius:5,showRadarLabels:true}]
     },
     options:{
+      maintainAspectRatio:false,
       plugins:{
         legend:{labels:{color:'#475569',font:{family:'Noto Sans KR',size:11}}},
         radarPointLabels:{display:true}
@@ -1391,11 +1391,11 @@ function initCharts(){
     data:{
       labels:['1차\n수도권','2차\n영남','3차\n영남','4차\n영남','5차\n호남','6차\n중부','7차\n호남','8차\n중부','9차\n수도권','10차\n수도권','11차\n영남','12차\n호남','15차\n수도권','16차\n영남','17차\n중부'],
       datasets:[
-        {type:'bar',label:'차수 평균',data:[72.4,64.4,63.2,73.7,67.3,73.8,71.8,74.7,75.0,69.1,56.1,68.3,70.7,72.0,74.6],
-         backgroundColor:['#DBEAFE','#DBEAFE','#DBEAFE','#D1FAE5','#FEF3C7','#D1FAE5','#DBEAFE','#D1FAE5','#D1FAE5','#FEF3C7','#FEE2E2','#FEF3C7','#DBEAFE','#DBEAFE','#D1FAE5'],
-         borderColor:['#2563EB','#2563EB','#2563EB','#059669','#D97706','#059669','#2563EB','#059669','#059669','#D97706','#DC2626','#D97706','#2563EB','#2563EB','#059669'],
+        {type:'bar',label:'차수 평균',data:[72.4,64.4,63.2,73.7,67.3,73.8,71.8,74.7,75.0,69.1,56.1,68.3,70.7,61.5,67.1],
+         backgroundColor:['#DBEAFE','#DBEAFE','#DBEAFE','#D1FAE5','#FEF3C7','#D1FAE5','#DBEAFE','#D1FAE5','#D1FAE5','#FEF3C7','#FEE2E2','#FEF3C7','#DBEAFE','#FEE2E2','#FEF3C7'],
+         borderColor:['#2563EB','#2563EB','#2563EB','#059669','#D97706','#059669','#2563EB','#059669','#059669','#D97706','#DC2626','#D97706','#2563EB','#DC2626','#D97706'],
          borderWidth:2,borderRadius:5,showLabels:true,labelColor:'#1E293B'},
-        {type:'line',label:'전체 평균(69.8)',data:[69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8,69.8],borderColor:'#94A3B8',borderDash:[5,4],pointRadius:0,fill:false}
+        {type:'line',label:'전체 평균(68.6)',data:[68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6,68.6],borderColor:'#94A3B8',borderDash:[5,4],pointRadius:0,fill:false}
       ]
     },
     options:{...CD,scales:{...CD.scales,y:{...CD.scales.y,min:50,max:82}}}
