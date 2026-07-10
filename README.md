@@ -1,1 +1,1 @@
-# celtic education-dashboard
+# celtic-dashboard
